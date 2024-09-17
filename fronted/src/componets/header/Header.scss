@@ -1,0 +1,98 @@
+@import '../../style/color.scss';
+
+.header{
+    display: flex;
+    width:100%;
+    height:76px;
+    position: fixed;
+    background-color:$light;
+
+
+    .logo{
+        width:20%;
+        height:100%;
+    
+        display: flex;
+        align-items: center;
+        
+      
+
+        .heading-title{
+            font-size: 2em;
+            display: flex;
+            height:100%;
+            align-items: center;    
+            font-family: "Nunito", sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color:$primary;
+            &::before {
+                content: "\1F4D6"; /* Unicode for 📖 */
+                font-size: 2em;
+                
+            }
+        }
+
+    }
+
+
+    .all-route-link{
+        width:76%;
+        display: flex;
+        justify-content:end;
+        gap:40px;
+      
+        
+    }
+    .join-btn {
+        background-color: hsl(185, 66%, 53%);
+        width: 15%;
+        height: 100%;
+        border-color: #1fc2d1;
+        display: grid;
+        place-items: center; /* Center both vertically and horizontally */
+    
+        .join-para {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            font-size: 1.3em;
+            position: relative; /* Required for transition effect on ::after */
+            transition: 0.5s; /* For smooth hover effect */
+            
+            &::after {
+                content: "\2192"; /* Unicode for → */
+                font-size: 1.2em;
+                bottom: -1px;
+                margin-left: 5px; /* Add initial space */
+                position: absolute; /* To allow smooth movement */
+                transition: transform 0.5s ease; /* Smooth transition */
+                transform: translateX(0); /* Default position */
+            }
+        }
+    
+        &:hover .join-para::after {
+            
+            transform: translateX(5px); /* Move arrow 10px to the right */
+        }
+    }
+    
+    
+}
+
+
+.route{
+    margin-right: 30px;
+    padding: 25px 0;
+    color:$dark;
+    font-size: 15px;
+    text-transform: uppercase;
+    outline: none;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .8s;
+    &:hover{
+        color:$primary;
+    }
+    
+}
