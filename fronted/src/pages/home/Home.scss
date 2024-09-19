@@ -1,55 +1,80 @@
-
-@import '../../style/color.scss';
+@import "../../style/color.scss";
 .home {
+  display: flex;
+  flex-direction: column;
+  .slider {
+    width: 100%;
+    height: 100vh;
 
-    .slider {
-        width: 100%;
-        height: 110vh;
-      
-        .slide-container {
-          position: relative;
-          height: calc(110vh - 72px);
-          width: 100%;
-          .slide-img {
-            filter: blur(2px); /* Only blurs the image */
-          }
-      
-          .slide-content {
-            position: absolute;
-            top: 30%;
-            color: white;
-            margin-left: 40px;
-            width: 70%;
-      
-            .course-rating {
-              color: #06bbcc !important;
-              font-size: 1.4rem;
-              margin-top: 0;
-              margin-bottom: 0.5rem;
-              font-family: "Nunito", sans-serif;
-              font-weight: 600;
-              line-height: 1.2;
-              color: #181d38;
-            }
-      
-            .title {
-              font-size: calc(1.525rem + 3.3vw);
-              font-weight: 800;
-              line-height: 1.2;
-              font-family: "Nunito", sans-serif;
-              color: #fff !important;
-            }
-      
-            .description {
-              padding-bottom: 0.5rem !important;
-              width: 70%;
-            }
-          }
-        }
+    .slide-container {
+      position: relative;
+      height: calc(110vh - 72px);
+      width: 100%;
+      .slide-img {
+        filter: blur(2px); /* Only blurs the image */
       }
 
+      .slide-content {
+        position: absolute;
+        top: 30%;
+        color: white;
+        margin-left: 40px;
+        width: 70%;
 
-      
+        // this is for animation
+       
+
+
+        .course-rating {
+          color: #06bbcc !important;
+          font-size: 1.4rem;
+          margin-top: 0;
+          margin-bottom: 0.5rem;
+          font-family: "Nunito", sans-serif;
+          font-weight: 600;
+          line-height: 1.2;
+          color: #181d38;
+           //gsap
+           transform: translatez(-200px);
+           opacity: 0;
+
+        }
+
+        .title {
+          font-size: calc(1.525rem + 3.3vw);
+          font-weight: 800;
+          line-height: 1.2;
+          font-family: "Nunito", sans-serif;
+          color: #fff !important;
+
+
+          //gsap
+          transform: translatez(-200px);
+          opacity: 0;
+  
+
+          
+        }
+
+        .description {
+          padding-bottom: 0.5rem !important;
+          width: 70%;
+          color:#f0fbfc;
+
+
+              //gsap
+              transform: translateZ(-200px);
+              opacity: 0;
+
+
+          
+        }
+
+
+        
+      }
+    }
+  }
 
   .services {
     visibility: visible;
@@ -61,7 +86,11 @@
     height: auto;
     justify-content: center;
     padding: 0px 50px;
-  
+    margin: 10px 0px;
+    
+
+   ;
+
     .service-container {
       flex: 1 1 200px; /* Grows to fill space, shrinks, and has a minimum width of 200px */
       margin: 10px;
@@ -71,57 +100,113 @@
       font-weight: 400;
       line-height: 1.5;
       color: #52565b;
-      background-color: #F0FBFC;
+      background-color: #f0fbfc;
       -webkit-text-size-adjust: 100%;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       position: relative;
       padding: 24px;
-      
-      
-      transition: all .5s ease-in-out;
-      .service-content{
+     
+
+      transition: all 0.5s ease-in-out;
+      .service-content {
         display: flex;
         flex-wrap: wrap; /* Allows wrapping to the next line */
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        .service-icon{
-            height:50px;
-            width:50px;
-            fill: $primary;
-            bottom: -1px;
-            margin-left: 5px; /* Add initial space */
-            transition: all .5s ease-in-out;
-          
+        .service-icon {
+          height: 50px;
+          width: 50px;
+          fill: $primary;
+          bottom: -1px;
+          margin-left: 5px; /* Add initial space */
+          transition: all 0.5s ease-in-out;
         }
       }
 
-      &:hover{
-        background-color:$primary;
+      &:hover {
+        background-color: $primary;
         transform: translateY(-5px);
-        color:$light;
+        color: $light;
       }
 
-      &:hover .service-icon{
+      &:hover .service-icon {
         fill: $light;
       }
     }
   }
 
+  .in {
+    width: 100%;
+    padding: 50px;
+    
+
+    .in-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .in-title {
+        color:$primary;
+        font-size: 24px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: stretch;
+        gap: 10px;
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+        font-size: 1.3rem;
 
 
+        &::before {
+          content: "\2500\2500\2500\2500\2500"; // 5 small horizontal bars (─)
+          width: calc(100% + 100px);
+          height: 2px;
+          top: 4px;
+          left: -40px;
+          z-index: -1;
+        }
 
+        &::before {
+          content: "\2500\2500\2500\2500\2500"; // 5 small horizontal bars (─)
+          width: calc(100% + 100px);
+          height: 2px;
+          top: 4px;
+          left: -90px;
+          z-index: -1;
+        }
 
+        &::after {
+          content: "\2500\2500\2500\2500\2500"; // 5 small horizontal bars (─)
+          height: 2px;
+          top: 4px;
+          right: 0px;
+          z-index: -1;
+        }
+      }
 
+      .in-heading {
+        font-size: 2.5rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-family: "Nunito", sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #181d38;
 
+        margin-bottom: 20px;
+      }
+    }
+    .in-container {
+      width: 100%;
 
+      .in-flex-box {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
 }
-
-
-
-
-
 
 .carousel-control-next {
   // position: absolute;
@@ -132,4 +217,21 @@
 
 .carousel-control-prev {
   display: none;
+}
+
+
+
+
+.service-animation{
+  // transform: translateX(-400px);
+  scale: .1;
+  opacity: 0;
+
+}
+
+
+.in-animation{
+  scale: .1;
+  opacity: 0;
+  
 }
